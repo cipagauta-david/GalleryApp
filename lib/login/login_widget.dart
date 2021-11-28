@@ -47,7 +47,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(50, 0, 50, 80),
                   child: Image.network(
-                    'https://bit.ly/3nz67gK',
+                    'https://firebasestorage.googleapis.com/v0/b/ecommerce-misiontic.appspot.com/o/loginn.jpg?alt=media&token=4c0c69d0-2768-4504-b8d0-69974e386105',
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -166,7 +166,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                             type: PageTransitionType.topToBottom,
                             duration: Duration(milliseconds: 300),
                             reverseDuration: Duration(milliseconds: 300),
-                            child: NavBarPage(initialPage: 'eventos'),
+                            child: NavBarPage(initialPage: 'inicio'),
                           ),
                         );
                       } finally {

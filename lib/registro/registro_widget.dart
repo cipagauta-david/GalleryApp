@@ -68,7 +68,7 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(20),
                             child: Image.network(
-                              'https://scontent.fbog2-4.fna.fbcdn.net/v/t39.30808-6/259017693_113020171199804_3572136886722395322_n.jpg?_nc_cat=107&ccb=1-5&_nc_sid=0debeb&_nc_ohc=JLng5FKLqJgAX-F5zDg&tn=Hkn27BVS_Z4zkbjD&_nc_ht=scontent.fbog2-4.fna&oh=95c1dfc8e6550192df824715bf6a3d71&oe=61A027B4',
+                              'https://firebasestorage.googleapis.com/v0/b/ecommerce-misiontic.appspot.com/o/loginn.jpg?alt=media&token=4c0c69d0-2768-4504-b8d0-69974e386105',
                               width: 100,
                               height: 100,
                               fit: BoxFit.cover,

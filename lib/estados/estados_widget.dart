@@ -1,3 +1,5 @@
+import 'package:flutter/services.dart';
+
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
@@ -5,6 +7,7 @@ import '../iniciochat/InicioChat.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 
 class EstadosWidget extends StatefulWidget {
   EstadosWidget({Key key}) : super(key: key);
@@ -15,6 +18,8 @@ class EstadosWidget extends StatefulWidget {
 
 class _EstadosWidgetState extends State<EstadosWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  String txt = "";
 
   @override
   Widget build(BuildContext context) {
@@ -171,7 +176,7 @@ class _EstadosWidgetState extends State<EstadosWidget> {
                                           alignment:
                                               AlignmentDirectional(-0.1, -0.5),
                                           child: Text(
-                                            'Big show today',
+                                            txt,
                                             style: FlutterFlowTheme.subtitle2
                                                 .override(
                                               fontFamily: 'Montserrat',
@@ -579,7 +584,39 @@ class _EstadosWidgetState extends State<EstadosWidget> {
                   )
                 ],
               ),
-            )
+            ),
+            Container(
+              padding: EdgeInsets.all(15),
+              child: TextField(
+                onChanged: (texto) {
+                  txt = texto;
+                },
+                textInputAction: TextInputAction.send,
+                autocorrect: true,
+                textCapitalization: TextCapitalization.sentences,
+                textAlign: TextAlign.justify,
+                style: TextStyle(
+                  color: Colors.blue,
+                ),
+                maxLength: 50,
+                decoration: InputDecoration(
+                  prefixIcon: Icon(
+                    Icons.send,
+                    color: Colors.black,
+                  ),
+                  hintText: "Cuéntales a todos que estás pensando",
+                  hintStyle: TextStyle(color: Colors.brown.shade100),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.blue, width: 3),
+                    borderRadius: BorderRadius.all(Radius.circular(20)),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.blue, width: 3),
+                    borderRadius: BorderRadius.all(Radius.circular(20)),
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),
