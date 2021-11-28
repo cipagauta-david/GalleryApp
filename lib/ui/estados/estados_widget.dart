@@ -1,13 +1,12 @@
 import 'package:flutter/services.dart';
 
-import '../flutter_flow/flutter_flow_icon_button.dart';
-import '../flutter_flow/flutter_flow_theme.dart';
-import '../flutter_flow/flutter_flow_util.dart';
+import 'package:proyecto/data/flutter_flow/flutter_flow_icon_button.dart';
+import 'package:proyecto/data/flutter_flow/flutter_flow_theme.dart';
+import 'package:proyecto/data/flutter_flow/flutter_flow_util.dart';
 import '../iniciochat/InicioChat.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 
 class EstadosWidget extends StatefulWidget {
   EstadosWidget({Key key}) : super(key: key);
@@ -604,7 +603,7 @@ class _EstadosWidgetState extends State<EstadosWidget> {
                     Icons.send,
                     color: Colors.black,
                   ),
-                  hintText: "Cuéntales a todos que estás pensando",
+                  hintText: "Cuéntales a todos qué estás pensando",
                   hintStyle: TextStyle(color: Colors.brown.shade100),
                   enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(color: Colors.blue, width: 3),
