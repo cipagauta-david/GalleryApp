@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:proyecto/ui/models/usuario.dart';
+import 'package:proyecto/ui/pages/models/usuario.dart';
 
 class InicioChat extends StatefulWidget {
   //const InicioChat({Key? key}) : super(key: key);

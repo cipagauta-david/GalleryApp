@@ -1,14 +1,14 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:proyecto/ui/home/home_widget.dart';
+import 'package:proyecto/ui/pages/home/home_widget.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:proyecto/data/flutter_flow/flutter_flow_theme.dart';
-import 'package:proyecto/ui/profile/profile_widget.dart';
-import 'package:proyecto/ui/estados/estados_widget.dart';
-import 'package:proyecto/ui/inicio/inicio_widget.dart';
-import 'package:proyecto/ui/n_post/n_post_widget.dart';
-import 'package:proyecto/ui/eventos/eventos_widget.dart';
+import 'package:proyecto/ui/pages/profile/profile_widget.dart';
+import 'package:proyecto/ui/pages/estados/estados_widget.dart';
+import 'package:proyecto/ui/pages/inicio/inicio_widget.dart';
+import 'package:proyecto/ui/pages/n_post/n_post_widget.dart';
+import 'package:proyecto/ui/pages/eventos/eventos_widget.dart';
 import 'package:proyecto/data/flutter_flow/flutter_flow_theme.dart';
 
 void main() {
