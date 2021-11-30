@@ -107,16 +107,19 @@ class _InicioWidgetState extends State<InicioWidget> {
               ),
             ),
             Expanded(
-              child: ListView(
+              child: Container(
+                    width: double.infinity,
+                    height: 100,
+                    decoration: BoxDecoration(
+                      color: Color(0xFFEEEEEE),
+                    ),
+                    child:ListView(
                 padding: EdgeInsets.zero,
                 scrollDirection: Axis.vertical,
                 children: [
                   Container(
                     width: double.infinity,
                     height: 100,
-                    decoration: BoxDecoration(
-                      color: Color(0xFFEEEEEE),
-                    ),
                     child: ListView(
                       padding: EdgeInsets.zero,
                       scrollDirection: Axis.horizontal,
@@ -454,7 +457,7 @@ class _InicioWidgetState extends State<InicioWidget> {
                   )
                 ],
               ),
-            )
+            ),),
           ],
         ),
       ),

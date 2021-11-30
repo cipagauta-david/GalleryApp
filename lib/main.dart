@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -12,7 +13,10 @@ import 'package:proyecto/ui/pages/eventos/eventos_widget.dart';
 import 'package:proyecto/data/flutter_flow/flutter_flow_theme.dart';
 
 void main() {
-  runApp(MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  Firebase.initializeApp().then((value) {
+    runApp(MyApp());
+  });
 }
 
 class MyApp extends StatelessWidget {
