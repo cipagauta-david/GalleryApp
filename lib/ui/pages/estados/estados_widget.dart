@@ -588,7 +588,9 @@ class _EstadosWidgetState extends State<EstadosWidget> {
               padding: EdgeInsets.all(15),
               child: TextField(
                 onChanged: (texto) {
-                  txt = texto;
+                  setState(() {
+                    txt = texto;
+                  });
                 },
                 textInputAction: TextInputAction.send,
                 autocorrect: true,

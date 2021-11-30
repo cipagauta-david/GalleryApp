@@ -29,7 +29,7 @@ class _NPostWidgetState extends State<NPostWidget> {
             image: DecorationImage(
               fit: BoxFit.cover,
               image: Image.network(
-                'https://scontent.fbog2-4.fna.fbcdn.net/v/t39.30808-6/259017693_113020171199804_3572136886722395322_n.jpg?_nc_cat=107&ccb=1-5&_nc_sid=0debeb&_nc_ohc=wYKV9UNgYYUAX8m45QT&_nc_ht=scontent.fbog2-4.fna&oh=03580d1a6d4177484cb0aaa5caa9f717&oe=619C3334',
+                'https://firebasestorage.googleapis.com/v0/b/proyecto-3ac2c.appspot.com/o/logoappmovil.jpg?alt=media&token=cae36c9f-58fb-406a-be92-4796adc61449',
               ).image,
             ),
           ),
@@ -51,7 +51,7 @@ class _NPostWidgetState extends State<NPostWidget> {
                           shape: BoxShape.circle,
                         ),
                         child: Image.network(
-                          'https://picsum.photos/seed/932/600',
+                          'https://picsum.photos/seed/913/400',
                         ),
                       ),
                     )
