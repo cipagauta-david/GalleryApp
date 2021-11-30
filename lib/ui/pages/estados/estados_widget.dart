@@ -39,7 +39,7 @@ class _EstadosWidgetState extends State<EstadosWidget> {
                 image: DecorationImage(
                   fit: BoxFit.cover,
                   image: Image.network(
-                    'https://firebasestorage.googleapis.com/v0/b/ecommerce-misiontic.appspot.com/o/logoappmovil.jpg?alt=media&token=c14a40bc-d156-4556-a720-9775c9eb3360',
+                    'https://firebasestorage.googleapis.com/v0/b/proyecto-3ac2c.appspot.com/o/logoappmovil.jpg?alt=media&token=cae36c9f-58fb-406a-be92-4796adc61449',
                   ).image,
                 ),
               ),
@@ -61,7 +61,7 @@ class _EstadosWidgetState extends State<EstadosWidget> {
                               shape: BoxShape.circle,
                             ),
                             child: Image.network(
-                              'https://picsum.photos/seed/425/600',
+                              'https://picsum.photos/seed/913/400',
                             ),
                           ),
                         )

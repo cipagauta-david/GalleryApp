@@ -35,7 +35,7 @@ class _HomeWidgetState extends State<HomeWidget> {
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(50, 0, 50, 80),
                 child: Image.network(
-                  'https://firebasestorage.googleapis.com/v0/b/ecommerce-misiontic.appspot.com/o/loginn.jpg?alt=media&token=4c0c69d0-2768-4504-b8d0-69974e386105',
+                  'https://firebasestorage.googleapis.com/v0/b/proyecto-3ac2c.appspot.com/o/loginn.jpg?alt=media&token=8b1a8e41-43ed-4b1b-89b3-97928a723aa1',
                   width: 500,
                   height: 220,
                   fit: BoxFit.cover,

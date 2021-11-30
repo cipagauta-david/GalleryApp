@@ -28,11 +28,11 @@ class _ProfileWidgetState extends State<ProfileWidget> {
               width: double.infinity,
               height: 200,
               decoration: BoxDecoration(
-                color: Color(0xFFEEEEEE),
+                color: Colors.white,
                 image: DecorationImage(
                   fit: BoxFit.cover,
-                  image: Image.asset(
-                    'assets/images/kisspng-watercolor-painting-drip-painting-photography-purple-watercolor-5ac06119aaa518.124684501522557209699.png',
+                  image: Image.network(
+                    'https://firebasestorage.googleapis.com/v0/b/proyecto-3ac2c.appspot.com/o/logoappmovil.jpg?alt=media&token=cae36c9f-58fb-406a-be92-4796adc61449',
                   ).image,
                 ),
               ),
@@ -44,7 +44,7 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                     image: DecorationImage(
                       fit: BoxFit.cover,
                       image: Image.network(
-                        'https://http2.mlstatic.com/D_NQ_NP_2X_692947-MLA32511615302_102019-F.webp-de-avatar-icono-masculino-perfil-102767898.jpg',
+                        'https://picsum.photos/seed/913/400',
                       ).image,
                     ),
                     shape: BoxShape.circle,

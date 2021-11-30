@@ -68,7 +68,7 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(20),
                             child: Image.network(
-                              'https://firebasestorage.googleapis.com/v0/b/ecommerce-misiontic.appspot.com/o/loginn.jpg?alt=media&token=4c0c69d0-2768-4504-b8d0-69974e386105',
+                              'https://firebasestorage.googleapis.com/v0/b/proyecto-3ac2c.appspot.com/o/loginn.jpg?alt=media&token=8b1a8e41-43ed-4b1b-89b3-97928a723aa1',
                               width: 100,
                               height: 100,
                               fit: BoxFit.cover,
@@ -327,7 +327,7 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(25, 40, 25, 0),
                     child: FFButtonWidget(
-                      onPressed: () {
+                      onPressed:() {
                         print('Button pressed ...');
                       },
                       text: 'REGISTRARSE',

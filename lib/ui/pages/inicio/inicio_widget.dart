@@ -65,7 +65,7 @@ class _InicioWidgetState extends State<InicioWidget> {
                                 shape: BoxShape.circle,
                               ),
                               child: Image.network(
-                                'https://picsum.photos/seed/932/600',
+                                'https://picsum.photos/seed/913/400',
                               ),
                             ),
                           ),

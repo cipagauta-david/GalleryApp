@@ -51,8 +51,8 @@ class _InicioState extends State<InicioChat> {
             child: CircleAvatar(
               minRadius: 18.0,
               maxRadius: 18.0,
-              backgroundImage: NetworkImage(
-                  'https://uifaces.co/our-content/donated/uTUM6Mu3.jpg'),
+              backgroundImage:
+                  NetworkImage('https://picsum.photos/seed/913/400'),
             ),
           ),
           //leading: IconButton(icon: Icon(Icons.exit_to_app), onPressed: () {}),
