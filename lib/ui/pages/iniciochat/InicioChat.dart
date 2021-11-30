@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:proyecto/domain/use_cases/controllers/authentication.dart';
 import 'package:proyecto/ui/pages/models/usuario.dart';
+import 'package:get/get.dart';
 
 class InicioChat extends StatefulWidget {
   //const InicioChat({Key? key}) : super(key: key);
@@ -36,9 +38,11 @@ class _InicioState extends State<InicioChat> {
         uid: '12', nombre: 'Marcela ', email: 'prueba@gmail.com', online: true),
     Usuario(uid: '13', nombre: 'Jose', email: 'prueba@gmail.com', online: true)
   ];
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
+    //sesionU sesionUU = Get.find();
     return Scaffold(
         appBar: AppBar(
           title: Text(
@@ -51,8 +55,7 @@ class _InicioState extends State<InicioChat> {
             child: CircleAvatar(
               minRadius: 18.0,
               maxRadius: 18.0,
-              backgroundImage:
-                  NetworkImage('https://picsum.photos/seed/913/400'),
+              backgroundImage: NetworkImage("https://picsum.photos/seed/913/400"),
             ),
           ),
           //leading: IconButton(icon: Icon(Icons.exit_to_app), onPressed: () {}),

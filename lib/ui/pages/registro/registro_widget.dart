@@ -119,7 +119,7 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                               ),
                               validator: (val) {
                                 if (val.isEmpty) {
-                                  return 'Field is required';
+                                  return 'Campo requerido';
                                 }
 
                                 return null;
@@ -169,7 +169,7 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                               ),
                               validator: (val) {
                                 if (val.isEmpty) {
-                                  return 'Field is required';
+                                  return 'Campo requerido';
                                 }
 
                                 return null;
@@ -186,7 +186,7 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                       controller: textController3,
                       obscureText: false,
                       decoration: InputDecoration(
-                        hintText: 'Teléfono o email',
+                        hintText: 'Email',
                         hintStyle: FlutterFlowTheme.bodyText1.override(
                           fontFamily: 'Poppins',
                           fontWeight: FontWeight.w300,
@@ -218,6 +218,17 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w300,
                       ),
+                      validator: (val) {
+                        if (val.isEmpty) {
+                          return 'Campo requerido';
+                        }
+
+                        if (val.contains("@") && val.contains(".co")) {
+                          return null;
+                        } else {
+                          return "formato no válido";
+                        }
+                      },
                     ),
                   ),
                   Padding(
@@ -270,6 +281,16 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w300,
                       ),
+                      validator: (val) {
+                        if (val.isEmpty) {
+                          return 'Campo requerido';
+                        }
+                        if (val.length < 6) {
+                          return 'Su contraseña debe contener al menos 6 caracteres';
+                        }
+
+                        return null;
+                      },
                     ),
                   ),
                   Padding(
@@ -322,13 +343,26 @@ class _RegistroWidgetState extends State<RegistroWidget> {
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w300,
                       ),
+                      validator: (val) {
+                        if (val.isEmpty) {
+                          return 'Campo requerido';
+                        }
+                        if (val.length < 6) {
+                          return 'Su contraseña debe contener al menos 6 caracteres';
+                        }
+                        return null;
+                      },
                     ),
                   ),
                   Padding(
                     padding: EdgeInsetsDirectional.fromSTEB(25, 40, 25, 0),
                     child: FFButtonWidget(
-                      onPressed:() {
-                        print('Button pressed ...');
+                      onPressed: () {
+                        if (formKey.currentState.validate()) {
+                          print('Validación exitosa');
+                        } else {
+                          print('Ha ocurrido un error');
+                        }
                       },
                       text: 'REGISTRARSE',
                       options: FFButtonOptions(

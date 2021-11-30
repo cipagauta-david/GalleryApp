@@ -599,7 +599,7 @@ class _EstadosWidgetState extends State<EstadosWidget> {
                 style: TextStyle(
                   color: Colors.blue,
                 ),
-                maxLength: 50,
+                maxLength: 20,
                 decoration: InputDecoration(
                   prefixIcon: Icon(
                     Icons.send,
