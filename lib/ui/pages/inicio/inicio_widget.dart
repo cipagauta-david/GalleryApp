@@ -1,8 +1,12 @@
 import 'package:proyecto/data/flutter_flow/flutter_flow_icon_button.dart';
 import 'package:proyecto/data/flutter_flow/flutter_flow_theme.dart';
 import 'package:proyecto/data/flutter_flow/flutter_flow_util.dart';
-import '../iniciochat/InicioChat.dart';
+import 'package:proyecto/ui/pages/iniciochat/InicioChat.dart';
+import 'package:proyecto/model/post.dart';
+
 import 'package:flutter/material.dart';
+import 'package:firebase_database/firebase_database.dart';
+import 'dart:async';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -13,8 +17,33 @@ class InicioWidget extends StatefulWidget {
   _InicioWidgetState createState() => _InicioWidgetState();
 }
 
+final postReference = FirebaseDatabase.instance.reference().child('post');
+
 class _InicioWidgetState extends State<InicioWidget> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  List<Post> posts;
+  StreamSubscription<Event> _onPostAddedSubscription;
+  StreamSubscription<Event> _onPostChangedSubscription;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    posts = [];
+    _onPostAddedSubscription= postReference.onChildAdded.listen(_onPostAdded);
+    _onPostChangedSubscription= postReference.onChildChanged.listen(_onPostChanged);
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    _onPostAddedSubscription.cancel();
+    _onPostChangedSubscription.cancel();
+  }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -108,359 +137,162 @@ class _InicioWidgetState extends State<InicioWidget> {
             ),
             Expanded(
               child: Container(
-                    width: double.infinity,
-                    height: 100,
-                    decoration: BoxDecoration(
-                      color: Color(0xFFEEEEEE),
-                    ),
-                    child:ListView(
-                padding: EdgeInsets.zero,
-                scrollDirection: Axis.vertical,
-                children: [
-                  Container(
-                    width: double.infinity,
-                    height: 100,
-                    child: ListView(
-                      padding: EdgeInsets.zero,
-                      scrollDirection: Axis.horizontal,
-                      children: [
-                        FlutterFlowIconButton(
-                          borderColor: Colors.transparent,
-                          borderRadius: 30,
-                          borderWidth: 1,
-                          buttonSize: 60,
-                          icon: Icon(
-                            Icons.add_box_outlined,
-                            color: Colors.black,
-                            size: 30,
-                          ),
-                          onPressed: () {
-                            print('IconButton pressed ...');
-                          },
-                        ),
-                        Card(
-                          clipBehavior: Clip.antiAliasWithSaveLayer,
-                          color: Colors.white,
-                          child: Text(
-                            'Evento 1',
-                            style: FlutterFlowTheme.bodyText1.override(
-                              fontFamily: 'Poppins',
-                              color: Colors.black,
-                            ),
-                          ),
-                        ),
-                        Card(
-                          clipBehavior: Clip.antiAliasWithSaveLayer,
-                          color: Colors.white,
-                          child: Text(
-                            'Evento 2',
-                            style: FlutterFlowTheme.bodyText1.override(
-                              fontFamily: 'Poppins',
-                              color: Colors.black,
-                            ),
-                          ),
-                        ),
-                        Card(
-                          clipBehavior: Clip.antiAliasWithSaveLayer,
-                          color: Colors.white,
-                          child: Text(
-                            'Evento 3',
-                            style: FlutterFlowTheme.bodyText1.override(
-                              fontFamily: 'Poppins',
-                              color: Colors.black,
-                            ),
-                          ),
-                        ),
-                        Card(
-                          clipBehavior: Clip.antiAliasWithSaveLayer,
-                          color: Colors.white,
-                          child: Text(
-                            'Evento 4',
-                            style: FlutterFlowTheme.bodyText1.override(
-                              fontFamily: 'Poppins',
-                              color: Colors.black,
-                            ),
-                          ),
-                        ),
-                        Card(
-                          clipBehavior: Clip.antiAliasWithSaveLayer,
-                          color: Colors.white,
-                          child: Text(
-                            'Evento 5',
-                            style: FlutterFlowTheme.bodyText1.override(
-                              fontFamily: 'Poppins',
-                              color: Colors.black,
-                            ),
-                          ),
-                        ),
-                        Card(
-                          clipBehavior: Clip.antiAliasWithSaveLayer,
-                          color: Colors.white,
-                          child: Text(
-                            'Evento 6',
-                            style: FlutterFlowTheme.bodyText1.override(
-                              fontFamily: 'Poppins',
-                              color: Colors.black,
-                            ),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(8, 8, 8, 0),
-                    child: Card(
-                      clipBehavior: Clip.antiAliasWithSaveLayer,
-                      color: Colors.white,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(5),
-                      ),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
+                width: double.infinity,
+                height: 100,
+                decoration: BoxDecoration(
+                  color: Color(0xFFEEEEEE),
+                ),
+                child: ListView(
+                  padding: EdgeInsets.zero,
+                  scrollDirection: Axis.vertical,
+                  children: [
+                    Container(
+                      width: double.infinity,
+                      height: 100,
+                      child: ListView(
+                        padding: EdgeInsets.zero,
+                        scrollDirection: Axis.horizontal,
                         children: [
-                          Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              FlutterFlowIconButton(
-                                borderColor: Colors.transparent,
-                                borderRadius: 40,
-                                borderWidth: 1,
-                                buttonSize: 40,
-                                icon: FaIcon(
-                                  FontAwesomeIcons.commentDots,
-                                  color: Colors.black,
-                                  size: 20,
-                                ),
-                                onPressed: () {
-                                  print('IconButton pressed ...');
-                                },
-                              ),
-                              Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
-                                child: Container(
-                                  width: 40,
-                                  height: 40,
-                                  clipBehavior: Clip.antiAlias,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                  ),
-                                  child: Image.network(
-                                    'https://picsum.photos/seed/932/600',
-                                  ),
-                                ),
-                              )
-                            ],
+                          FlutterFlowIconButton(
+                            borderColor: Colors.transparent,
+                            borderRadius: 30,
+                            borderWidth: 1,
+                            buttonSize: 60,
+                            icon: Icon(
+                              Icons.add_box_outlined,
+                              color: Colors.black,
+                              size: 30,
+                            ),
+                            onPressed: () {
+                              print('IconButton pressed ...');
+                            },
                           ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
+                          Card(
+                            clipBehavior: Clip.antiAliasWithSaveLayer,
+                            color: Colors.white,
                             child: Text(
-                              'Lorem ipsum avdeas falttre tansu jasdjh askjd hasd ask gasjk dgkas dgkjdg aksj dhjjshd akjsh d',
+                              'Evento 1',
                               style: FlutterFlowTheme.bodyText1.override(
                                 fontFamily: 'Poppins',
                                 color: Colors.black,
-                                fontSize: 20,
+                              ),
+                            ),
+                          ),
+                          Card(
+                            clipBehavior: Clip.antiAliasWithSaveLayer,
+                            color: Colors.white,
+                            child: Text(
+                              'Evento 2',
+                              style: FlutterFlowTheme.bodyText1.override(
+                                fontFamily: 'Poppins',
+                                color: Colors.black,
+                              ),
+                            ),
+                          ),
+                          Card(
+                            clipBehavior: Clip.antiAliasWithSaveLayer,
+                            color: Colors.white,
+                            child: Text(
+                              'Evento 3',
+                              style: FlutterFlowTheme.bodyText1.override(
+                                fontFamily: 'Poppins',
+                                color: Colors.black,
+                              ),
+                            ),
+                          ),
+                          Card(
+                            clipBehavior: Clip.antiAliasWithSaveLayer,
+                            color: Colors.white,
+                            child: Text(
+                              'Evento 4',
+                              style: FlutterFlowTheme.bodyText1.override(
+                                fontFamily: 'Poppins',
+                                color: Colors.black,
+                              ),
+                            ),
+                          ),
+                          Card(
+                            clipBehavior: Clip.antiAliasWithSaveLayer,
+                            color: Colors.white,
+                            child: Text(
+                              'Evento 5',
+                              style: FlutterFlowTheme.bodyText1.override(
+                                fontFamily: 'Poppins',
+                                color: Colors.black,
+                              ),
+                            ),
+                          ),
+                          Card(
+                            clipBehavior: Clip.antiAliasWithSaveLayer,
+                            color: Colors.white,
+                            child: Text(
+                              'Evento 6',
+                              style: FlutterFlowTheme.bodyText1.override(
+                                fontFamily: 'Poppins',
+                                color: Colors.black,
                               ),
                             ),
                           )
                         ],
                       ),
                     ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(8, 8, 8, 0),
-                    child: Card(
-                      clipBehavior: Clip.antiAliasWithSaveLayer,
-                      color: Colors.white,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(5),
-                      ),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.center,
+                    Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(8, 8, 8, 0),
+                        child:
+                            ListView.builder(itemBuilder: (context, position) {
+                          return Column(
                             children: [
-                              FlutterFlowIconButton(
-                                borderColor: Colors.transparent,
-                                borderRadius: 40,
-                                borderWidth: 1,
-                                buttonSize: 40,
-                                icon: FaIcon(
-                                  FontAwesomeIcons.commentDots,
-                                  color: Colors.black,
-                                  size: 20,
-                                ),
-                                onPressed: () {
-                                  print('IconButton pressed ...');
-                                },
-                              ),
-                              Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
-                                child: Container(
-                                  width: 40,
-                                  height: 40,
-                                  clipBehavior: Clip.antiAlias,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                  ),
-                                  child: Image.network(
-                                    'https://picsum.photos/seed/932/600',
-                                  ),
-                                ),
+                              Divider(height: 7.0),
+                              Row(
+                                children: [
+                                  Expanded(
+                                    child: ListTile(
+                                      title: Text('$posts[position].name'),
+                                      subtitle: Text('$posts[position].content'),
+                                      leading: Column(
+                                        children: [
+                                          CircleAvatar(
+                                            backgroundColor: Colors.amber,
+                                            radius: 17.0,
+                                            child: Text('$posts[position].content'),
+                                          )
+                                        ]
+                                      ),
+                                    ),
+                                  )
+                                ],
                               )
                             ],
-                          ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
-                            child: Text(
-                              'Lorem ipsum avdeas falttre tansu jasdjh askjd hasd ask gasjk dgkas dgkjdg aksj dhjjshd akjsh d',
-                              style: FlutterFlowTheme.bodyText1.override(
-                                fontFamily: 'Poppins',
-                                color: Colors.black,
-                                fontSize: 20,
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(8, 8, 8, 0),
-                    child: Card(
-                      clipBehavior: Clip.antiAliasWithSaveLayer,
-                      color: Colors.white,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(5),
-                      ),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              FlutterFlowIconButton(
-                                borderColor: Colors.transparent,
-                                borderRadius: 40,
-                                borderWidth: 1,
-                                buttonSize: 40,
-                                icon: FaIcon(
-                                  FontAwesomeIcons.commentDots,
-                                  color: Colors.black,
-                                  size: 20,
-                                ),
-                                onPressed: () {
-                                  print('IconButton pressed ...');
-                                },
-                              ),
-                              Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
-                                child: Container(
-                                  width: 40,
-                                  height: 40,
-                                  clipBehavior: Clip.antiAlias,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                  ),
-                                  child: Image.network(
-                                    'https://picsum.photos/seed/932/600',
-                                  ),
-                                ),
-                              )
-                            ],
-                          ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
-                            child: Text(
-                              'Lorem ipsum avdeas falttre tansu jasdjh askjd hasd ask gasjk dgkas dgkjdg aksj dhjjshd akjsh d',
-                              style: FlutterFlowTheme.bodyText1.override(
-                                fontFamily: 'Poppins',
-                                color: Colors.black,
-                                fontSize: 20,
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(8, 8, 8, 0),
-                    child: Card(
-                      clipBehavior: Clip.antiAliasWithSaveLayer,
-                      color: Colors.white,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(5),
-                      ),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              FlutterFlowIconButton(
-                                borderColor: Colors.transparent,
-                                borderRadius: 40,
-                                borderWidth: 1,
-                                buttonSize: 40,
-                                icon: FaIcon(
-                                  FontAwesomeIcons.commentDots,
-                                  color: Colors.black,
-                                  size: 20,
-                                ),
-                                onPressed: () {
-                                  print('IconButton pressed ...');
-                                },
-                              ),
-                              Padding(
-                                padding:
-                                    EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
-                                child: Container(
-                                  width: 40,
-                                  height: 40,
-                                  clipBehavior: Clip.antiAlias,
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                  ),
-                                  child: Image.network(
-                                    'https://picsum.photos/seed/932/600',
-                                  ),
-                                ),
-                              )
-                            ],
-                          ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(5, 5, 5, 5),
-                            child: Text(
-                              'Lorem ipsum avdeas falttre tansu jasdjh askjd hasd ask gasjk dgkas dgkjdg aksj dhjjshd akjsh d',
-                              style: FlutterFlowTheme.bodyText1.override(
-                                fontFamily: 'Poppins',
-                                color: Colors.black,
-                                fontSize: 20,
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                  )
-                ],
+                          );
+                        })),
+                  ],
+                ),
               ),
-            ),),
+            ),
           ],
         ),
       ),
     );
+  }
+  
+  void _onPostAdded(Event event){
+    setState(() {
+      posts.add(new Post.fromSnapShot(event.snapshot));
+    });
+  }
+
+  void _onPostChanged(Event event){
+    var oldPostValue= posts.singleWhere((post) => post.id == event.snapshot.key);
+    setState(() {
+      posts[posts.indexOf(oldPostValue)] = new Post.fromSnapShot(event.snapshot);
+    });
+  }
+
+  void _deletePost(BuildContext context, Post post, int position) async{
+    await postReference.child(post.id).remove().then((value){
+      setState(() {
+        posts.removeAt(position);
+      });
+    });
   }
 }
